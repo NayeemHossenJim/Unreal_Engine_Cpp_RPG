@@ -10,6 +10,11 @@ void AItem::BeginPlay()
 {
 	Super::BeginPlay();
 	UE_LOG(LogTemp, Warning, TEXT("Item Begin Play"));
+
+	if(GEngine)
+	{
+		GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Yellow, TEXT("Item Begin Play"));
+	}
 	
 }
 
