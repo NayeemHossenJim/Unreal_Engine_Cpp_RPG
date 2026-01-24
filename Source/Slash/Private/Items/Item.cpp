@@ -1,4 +1,5 @@
 #include "Items/Item.h"
+#include "DrawDebugHelpers.h"
 
 AItem::AItem()
 {
@@ -15,7 +16,12 @@ void AItem::BeginPlay()
 	{
 		GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Yellow, TEXT("Item Begin Play"));
 	}
-	
+
+	UWorld* World = GetWorld();
+	if (World)
+	{
+		DrawDebugSphere(World, GetActorLocation(), 30.f, 12, FColor::Red, true, 10.f);
+	}
 }
 
 void AItem::Tick(float DeltaTime)
